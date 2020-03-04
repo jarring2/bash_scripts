@@ -1,0 +1,11 @@
+#!/bin/env bash
+#Josiah a
+#get_network_services
+#10/21/19
+#display service name of port number
+
+portn=$(cat /etc/services | tr -s " " | cut -d " " -f2 | grep ^$1/| head -1)
+
+service=$(cat /etc/services | tr -s " " | cut -d " " -f1,2 | grep -w $portn | cut -d " " -f1)
+
+echo "service of portnumber $1 is: $service"
